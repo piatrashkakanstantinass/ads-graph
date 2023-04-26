@@ -33,6 +33,8 @@ void arrayListExtend(ArrayList* a) {
     return;
   a->data = newData;
   a->allocatedSize = newSize;
+  for (size_t i = a->size; i < a->allocatedSize; ++i)
+    a->data[i] = NULL;
 }
 
 bool arrayListPush(ArrayList* a, void *v) {

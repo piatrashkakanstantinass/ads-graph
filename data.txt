@@ -4,6 +4,7 @@ MPS 3/3
 Procedurinis programavimas
 Komparchas
 Objektinis programavimas
+ADS
 
 MPS 1/3
 MPS 2/3
@@ -13,3 +14,9 @@ MPS 3/3
 
 Procedurinis programavimas
 Objektinis programavimas
+
+Komparchas
+ADS
+
+MPS 3/3
+ADS

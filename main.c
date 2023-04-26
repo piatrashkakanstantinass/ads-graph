@@ -93,6 +93,9 @@ Node *askForNode(char *msg) {
         continue;
       continue;
     }
+    int c;
+    while ((c = getchar()) != EOF && c != '\n')
+      continue;
     return node;
   }
 }
@@ -110,9 +113,20 @@ int main(int argc, char **argv) {
   graph = graphCreate();
   readNodes();
   readConnections();
+  // for (size_t i = 0; i < graph->nodes->size; ++i) {
+  //   for (size_t j = 0; j < graph->nodes->size; ++j) {
+  //     printf("%p ", ((ArrayList*)graph->matrix->data[i])->data[j]);
+  //   }
+  //   printf("\n");
+  // }
   printf("You can check node names in data file\n");
   Node *n1 = askForNode("Enter first node (subject): ");
-  Node *n2 = askForNode("Enter second node (subject): ");
+  Node *n2 = askForNode("Enter second node (subject that should be listened only after first subject): ");
+  if (graphNodeComesBefore(graph, n1, n2)) {
+    printf("You should listen to first subject before second\n");
+  } else {
+    printf("You do not have to listen to first subject before second\n");
+  }
   graphFree(graph);
   fclose(fp);
   return 0;
